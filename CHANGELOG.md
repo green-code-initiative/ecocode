@@ -11,7 +11,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
-- update developers list
+- update developers list + update maven plugins versions
+- correction of RULES.md file (renaming ECxx rules to GCIxx rules + reformating arrays)
 
 ### Deleted
 

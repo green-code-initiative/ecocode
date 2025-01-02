@@ -117,8 +117,7 @@
 
   <properties>
     <!-- Default version when disabling Maven `maven-git-versioning-extension`
-    extension
-    cf.
+    extension, see
     https://github.com/qoomon/maven-git-versioning-extension#intellij&#45;&#45;-multi-modules-projects
     -->
     <revision>current-SNAPSHOT</revision>
@@ -131,8 +130,8 @@
     <java.version>11</java.version>
     <maven.compiler.source>${java.version}</maven.compiler.source>
     <maven.compiler.target>${java.version}</maven.compiler.target>
-    <!-- to prevent message: system modules path not set in conjunction with
-		      -source 11 -->
+    <!-- to prevent message:
+    system modules path not set in conjunction with -source 11 -->
     <maven.compiler.release>${java.version}</maven.compiler.release>
 
     <encoding>UTF-8</encoding>
@@ -181,6 +180,17 @@
     </dependency>
   </dependencies>
   <build>
+    <pluginManagement>
+      <plugins>
+        <!-- TO KEEP : to fix sonar plugin version for CICD and execute
+        sonar:sonar on github CI -->
+        <plugin>
+          <groupId>org.sonarsource.scanner.maven</groupId>
+          <artifactId>sonar-maven-plugin</artifactId>
+          <version>5.0.0.4389</version>
+        </plugin>
+      </plugins>
+    </pluginManagement>
     <plugins>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
@@ -467,6 +477,30 @@
           </execution>
         </executions>
       </plugin>
+      <plugin>
+        <!--
+        Plugin to configure reading sonar-project.properties
+        (via Maven Properties Plugin)
+        because SonarQube Scanner for Maven does not support reading
+        sonar-project.properties
+        -->
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>properties-maven-plugin</artifactId>
+        <version>1.2.1</version>
+        <executions>
+          <execution>
+            <goals>
+              <goal>read-project-properties</goal>
+            </goals>
+            <phase>initialize</phase>
+            <configuration>
+              <files>
+                <file>sonar-project.properties</file>
+              </files>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
     </plugins>
   </build>
 
@@ -520,11 +554,12 @@
               - keys.openpgp.org
               - pgp.mit.edu
 
-              For more informatino:
+            For more information:
             https://central.sonatype.org/publish/requirements/gpg/#distributing-your-public-key
-            -->
+                        -->
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-gpg-plugin</artifactId>
+            <version>3.2.7</version>
             <executions>
               <execution>
                 <id>sign-artifacts</id>
