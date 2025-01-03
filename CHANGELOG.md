@@ -9,14 +9,20 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+### Changed
+
+### Deleted
+
+## [2.1.0] - 2025-01-03
+
+### Added
+
 - Add new Java rule GCI82 - Make non reassigned variables constants
 
 ### Changed
 
 - update developers list + update maven plugins versions
 - correction of RULES.md file (renaming ECxx rules to GCIxx rules + reformating arrays)
-
-### Deleted
 
 ## [2.0.0] - 2024-12-10
 
@@ -371,7 +377,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Comparison List
 
-[unreleased](https://github.com/green-code-initiative/creedengo-rules-specifications/compare/1.6.5...HEAD)
+[unreleased](https://github.com/green-code-initiative/creedengo-rules-specifications/compare/2.1.0...HEAD)
+[2.1.0](https://github.com/green-code-initiative/creedengo-rules-specifications/compare/2.0.0...2.1.0)
+[2.0.0](https://github.com/green-code-initiative/creedengo-rules-specifications/compare/1.6.5...2.0.0)
 [1.6.5](https://github.com/green-code-initiative/creedengo-rules-specifications/compare/1.6.4...1.6.5)
 [1.6.4](https://github.com/green-code-initiative/creedengo-rules-specifications/compare/1.6.3...1.6.4)
 [1.6.3](https://github.com/green-code-initiative/creedengo-rules-specifications/compare/1.6.2...1.6.3)
