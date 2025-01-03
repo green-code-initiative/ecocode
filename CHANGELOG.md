@@ -9,6 +9,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- Add new Java rule GCI82 - Make non reassigned variables constants
+
 ### Changed
 
 - update developers list + update maven plugins versions
